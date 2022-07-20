@@ -1,0 +1,21 @@
+int size=1e6+2;
+ vector<int>bit;
+ 
+ int prefix(int idx){
+     int ans=0;
+     while(idx>0){
+         ans+=bit[idx];
+         idx-=idx&(-idx); 
+     }
+     return ans;
+ }
+ 
+ 
+ void add(int idx){
+     while(idx<size){
+         bit[idx]++;
+         idx+=idx&(-idx);
+     }
+     
+ }
+ 
